@@ -1,0 +1,99 @@
+name: Task
+description: Lavoro di sviluppo pianificabile
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Priorità, taglia, area, cliente e sprint **non si scrivono qui**: sono campi del Project
+        [LIV4 delivery](https://github.com/orgs/liv4-labs/projects/7) e si impostano al triage e al refinement.
+        Qui va solo ciò che si legge aprendo la issue.
+
+  - type: textarea
+    id: risultato
+    attributes:
+      label: Risultato atteso
+      description: Cosa sarà vero quando questa issue è chiusa. Una o due frasi.
+      placeholder: L'ETL importa anche i record cancellati alla fonte.
+    validations:
+      required: true
+
+  - type: textarea
+    id: perche
+    attributes:
+      label: Perché conta
+      description: Chi ne beneficia e cosa succede se non si fa.
+    validations:
+      required: true
+
+  - type: textarea
+    id: incluso
+    attributes:
+      label: Incluso
+      description: Cosa rientra nello scope.
+    validations:
+      required: true
+
+  - type: textarea
+    id: escluso
+    attributes:
+      label: Escluso
+      description: Cosa NON rientra, anche se qualcuno potrebbe aspettarselo. Serve a chiudere senza discussioni.
+    validations:
+      required: true
+
+  - type: textarea
+    id: criteri
+    attributes:
+      label: Criteri di accettazione
+      description: Come checklist, così l'avanzamento si vede dalla lista senza aprire la issue. Non è la Definition of Done, che sta nel README del Project e vale per tutti.
+      value: |
+        - [ ] 
+        - [ ] 
+        - [ ] 
+    validations:
+      required: true
+
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Outcome verificabile
+      description: Come si verifica, concretamente, che il risultato atteso è raggiunto.
+    validations:
+      required: true
+
+  - type: textarea
+    id: passi
+    attributes:
+      label: Passi
+      description: I passi interni al lavoro, come checklist. Facoltativo su issue piccole.
+      value: |
+        - [ ] 
+        - [ ] 
+    validations:
+      required: false
+
+  - type: textarea
+    id: specifiche
+    attributes:
+      label: Specifiche tecniche
+      description: Si lascia vuota all'apertura. Si compila nello stato Design, prima di iniziare a scrivere codice.
+    validations:
+      required: false
+
+  - type: textarea
+    id: rischi
+    attributes:
+      label: Rischi
+      description: |
+        Si parte da una riga: una frase che nomina il rischio. Diventa un blocco strutturato solo se sai rispondere a tre domande — chi lo presidia, entro quando, cosa si fa se scade. Se non sai rispondere, la riga era già la cosa giusta.
+
+        Esempio di blocco:
+        | | |
+        |---|---|
+        | Descrizione | Serve una persona per lo sblocco infrastruttura |
+        | Impatto | Ambiente UAT |
+        | Azione | Sentirla. A scadenza, fallback su test manuali |
+        | Data limite | 5 agosto |
+    validations:
+      required: false
