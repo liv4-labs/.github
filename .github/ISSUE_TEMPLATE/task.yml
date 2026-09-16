@@ -52,7 +52,7 @@ body:
         - [ ] 
         - [ ] 
     validations:
-      required: true
+      required: false
 
   - type: textarea
     id: outcome
@@ -60,7 +60,7 @@ body:
       label: Outcome verificabile
       description: Come si verifica, concretamente, che il risultato atteso è raggiunto.
     validations:
-      required: true
+      required: false
 
   - type: textarea
     id: passi
@@ -97,3 +97,6 @@ body:
         | Data limite | 5 agosto |
     validations:
       required: false
+
+# Allineato al processo del 16 settembre 2026.
+# Sorgente delle regole: handbook/github-projects.md nella repo liv4-andrea.
