@@ -9,6 +9,22 @@ body:
         [LIV4 delivery](https://github.com/orgs/liv4-labs/projects/7) e si impostano al triage e al refinement.
         Qui va solo ciò che si legge aprendo la issue.
 
+        Il corpo dice tre cose: **com'è oggi**, con il riferimento per andare a guardare; **cosa deve diventare vero**;
+        **come si sa che è finita**.
+
+        Allineato al processo del 2026-09-17.
+
+  - type: textarea
+    id: oggi
+    attributes:
+      label: Com'è oggi
+      description: |
+        Lo stato di partenza, verificato sulla fonte viva e non su un documento di analisi, con il riferimento per andare a guardare.
+        Su un bug: il sintomo osservato con i numeri, la build su cui è stato visto, e come si riproduce.
+      placeholder: "L'ETL salta i record cancellati alla fonte: 412 mancanti su 9.318, misurato il 3 marzo su staging. Query in <link>."
+    validations:
+      required: true
+
   - type: textarea
     id: risultato
     attributes:
