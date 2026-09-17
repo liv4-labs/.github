@@ -10,6 +10,22 @@ body:
         Qui va solo ciò che si legge aprendo la issue.
 
   - type: textarea
+    id: oggi
+    attributes:
+      label: Com'e' oggi
+      description: >-
+        Dove sta la cosa e come si comporta adesso, con il riferimento per andare a guardare:
+        repo, file, tabella, rotta, nome del servizio. Chi legge non era nella discussione da cui
+        la issue nasce, quindi "il portale" o "il server" non bastano: va detto quale. Se non
+        l'hai verificato di persona, scrivilo invece di darlo per buono.
+      placeholder: >-
+        L'ETL in liv4-labs/lambda-stream-etl legge solo i record attivi: l'importatore filtra
+        sullo stato e i cancellati alla fonte restano a database come se fossero vivi.
+        Verificato il 17/09/2026 su origin/develop.
+    validations:
+      required: true
+
+  - type: textarea
     id: risultato
     attributes:
       label: Risultato atteso
@@ -22,7 +38,9 @@ body:
     id: perche
     attributes:
       label: Perché conta
-      description: Chi ne beneficia e cosa succede se non si fa.
+      description: >-
+        Chi ne beneficia e cosa ci costa non farlo. Due righe: lo stato attuale sta gia' nella
+        sezione sopra e qui non va ripetuto.
     validations:
       required: true
 
