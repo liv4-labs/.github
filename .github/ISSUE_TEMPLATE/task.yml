@@ -10,6 +10,15 @@ body:
         Qui va solo ciò che si legge aprendo la issue.
 
   - type: textarea
+    id: com_e_oggi
+    attributes:
+      label: Com'è oggi
+      description: Lo stato attuale, verificato sulla fonte viva (codice sul ramo di lavoro, database, infrastruttura) e non su un documento di analisi. Con il riferimento per andare a guardare, e la data accanto ai numeri. Su un bug è il sintomo osservato, con la build su cui è stato visto.
+      placeholder: "L'ETL scarta i record cancellati alla fonte: verificato il 18/09/2026 su develop, `etl/sync.py` filtra su deleted_at is null."
+    validations:
+      required: true
+
+  - type: textarea
     id: risultato
     attributes:
       label: Risultato atteso
@@ -97,3 +106,5 @@ body:
         | Data limite | 5 agosto |
     validations:
       required: false
+
+# Allineato al processo del 18/09/2026.
