@@ -9,6 +9,23 @@ body:
         [LIV4 delivery](https://github.com/orgs/liv4-labs/projects/7) e si impostano al triage e al refinement.
         Qui va solo ciò che si legge aprendo la issue.
 
+        Il corpo dice tre cose, in italiano corrente e comprensibile senza aver letto il documento
+        da cui nasce: **com'è oggi**, **cosa deve diventare vero**, **come si sa che è finita**.
+
+        *Allineato al processo del 18 settembre 2026.*
+
+  - type: textarea
+    id: come_e_oggi
+    attributes:
+      label: Com'è oggi
+      description: |
+        Lo stato di partenza, verificato sulla fonte viva (codice sul ramo di lavoro, database, infrastruttura) e non su un documento di analisi, con il riferimento per andare a guardare. Se la verifica non è possibile, si dichiara invece di tirare a indovinare.
+
+        Su un bug è la parte che serve di più: il sintomo osservato, con i numeri e la build su cui è stato visto. I numeri portano la data di misurazione.
+      placeholder: L'ETL salta i record cancellati alla fonte perché il filtro esclude le righe con `deleted_at` valorizzato (`etl/extract.py`, develop, verificato il 3 settembre).
+    validations:
+      required: true
+
   - type: textarea
     id: risultato
     attributes:
