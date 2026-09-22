@@ -9,6 +9,23 @@ body:
         [LIV4 delivery](https://github.com/orgs/liv4-labs/projects/7) e si impostano al triage e al refinement.
         Qui va solo ciò che si legge aprendo la issue.
 
+        Il corpo dice tre cose, comprensibili senza aver letto il documento da cui la issue nasce:
+        **com'è oggi**, **cosa deve diventare vero**, **come si sa che è finita**.
+
+  - type: textarea
+    id: oggi
+    attributes:
+      label: Com'è oggi
+      description: |
+        Lo stato di partenza, verificato sulla fonte viva (codice sul ramo di lavoro, database, infrastruttura) e non su un documento di analisi: un'analisi di un giorno prima può essere già smentita. Se la verifica non è possibile, si dichiara invece di tirare a indovinare.
+
+        Con il riferimento per andare a guardare: repo, file, tabella, rotta, nome del servizio. Chi legge non era nella discussione da cui la issue nasce, quindi «il portale» o «il server» non bastano. I numeri portano la data di misurazione.
+
+        Su un bug è la sezione che serve di più: il sintomo osservato, con i numeri e la build su cui è stato visto.
+      placeholder: "L'ETL scarta i record cancellati alla fonte: l'importatore filtra su deleted_at (liv4-labs/lambda-stream-etl, etl/extract.py, develop). Verificato il 17/09/2026."
+    validations:
+      required: true
+
   - type: textarea
     id: risultato
     attributes:
@@ -97,3 +114,8 @@ body:
         | Data limite | 5 agosto |
     validations:
       required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        *Allineato al processo del 18 settembre 2026.*
