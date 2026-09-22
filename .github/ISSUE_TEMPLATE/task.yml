@@ -5,8 +5,9 @@ body:
   - type: markdown
     attributes:
       value: |
-        Priorità, taglia, area, cliente e sprint **non si scrivono qui**: sono campi del Project
+        Priorità, taglia, area, cliente, ambiente e sprint **non si scrivono qui**: sono campi del Project
         [LIV4 delivery](https://github.com/orgs/liv4-labs/projects/7) e si impostano al triage e al refinement.
+        Su un Bug, `Ambiente` si compila all'apertura e dice se il difetto è già in mano ai clienti, non dove lo hai visto.
         Qui va solo ciò che si legge aprendo la issue.
 
         Il corpo dice tre cose, comprensibili senza aver letto il documento da cui la issue nasce:
@@ -118,4 +119,4 @@ body:
   - type: markdown
     attributes:
       value: |
-        *Allineato al processo del 18 settembre 2026.*
+        *Allineato al processo del 21 settembre 2026.*
