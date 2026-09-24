@@ -13,6 +13,8 @@ body:
         **com'è oggi**, **cosa deve diventare vero**, **come si sa che è finita**.
         Ogni cosa si scrive una volta sola, e le sezioni facoltative senza contenuto si tolgono.
 
+        **A Backlog la issue è corta.** «Com'è oggi» sono due o tre frasi sul problema. Criteri, outcome e passi portano la nota «si compila al refinement», e «Specifiche tecniche» resta vuota. File, funzioni, conteggi e stato dei rami si raccolgono al refinement, verificati sulla fonte viva.
+
   - type: textarea
     id: oggi
     attributes:
@@ -20,7 +22,9 @@ body:
       description: |
         Lo stato di partenza, scritto per chi non c'era: prima il sintomo come lo vede l'utente, poi perché succede, in italiano corrente. Verificato sulla fonte viva (codice sul ramo di lavoro, database, infrastruttura) e non su un documento di analisi: un'analisi di un giorno prima può essere già smentita. Se la verifica non è possibile, si dichiara invece di tirare a indovinare.
 
-        I riferimenti arrivano al file e alla funzione: repo, ramo, file, tabella, rotta, nome del servizio. «Il portale» o «il server» non bastano. SHA, numeri di riga, id dei messaggi e storia della segnalazione restano fuori, e l'analisi dettagliata del codice va in «Specifiche tecniche». I numeri portano la data di misurazione.
+        I riferimenti arrivano al file e alla funzione: repo, ramo, file, tabella, rotta, nome del servizio. «Il portale» o «il server» non bastano. SHA, numeri di riga, id dei messaggi e storia della segnalazione restano fuori, e l'analisi dettagliata del codice va in «Specifiche tecniche». A Backlog questi riferimenti non servono ancora: arrivano al refinement.
+
+        Ogni fatto osservato porta la data e il modo in cui è stato visto: «verificato il 24/9/2026 su develop di quality-engine», o il comando che lo rifà. Non portano data le cose che non sono osservazioni: il risultato atteso, il perimetro, un criterio.
 
         Su un bug è la sezione che serve di più: il sintomo osservato, con i numeri e la build su cui è stato visto.
       placeholder: "L'ETL scarta i record cancellati alla fonte: l'importatore filtra su deleted_at (liv4-labs/lambda-stream-etl, etl/extract.py, develop). Verificato il 17/09/2026."
@@ -95,7 +99,7 @@ body:
     id: specifiche
     attributes:
       label: Specifiche tecniche
-      description: Si lascia vuota all'apertura. Si compila nello stato Design, prima di iniziare a scrivere codice. Qui va l'analisi dettagliata del codice, che «Com'è oggi» non riporta.
+      description: Si lascia vuota all'apertura, e a Backlog la issue non la compila. Si compila nello stato Design, prima di iniziare a scrivere codice. Qui va l'analisi dettagliata del codice, che «Com'è oggi» non riporta.
     validations:
       required: false
 
@@ -105,6 +109,8 @@ body:
       label: Rischi
       description: |
         Si parte da una riga: una frase che nomina il rischio. Diventa un blocco strutturato solo se sai rispondere a tre domande: chi lo presidia, entro quando, cosa si fa se scade. Se non sai rispondere, la riga era già la cosa giusta.
+
+        Un rischio che poggia su un fatto osservato porta la data e il modo in cui è stato visto, come in «Com'è oggi».
 
         Esempio di blocco:
         | | |
