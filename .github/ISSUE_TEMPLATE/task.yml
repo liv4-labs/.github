@@ -9,6 +9,8 @@ body:
         [LIV4 delivery](https://github.com/orgs/liv4-labs/projects/7) e si impostano alla backlog prioritization, al refinement e quando la issue entra in uno sprint.
         Qui va solo ciò che si legge aprendo la issue.
 
+        Le issue del Project si aprono tutte su **quality-engine**, anche quando il lavoro tocca il portale o l'infrastruttura: dove si lavora lo dice il campo Area.
+
         Il corpo dice tre cose, comprensibili senza aver letto il documento da cui la issue nasce:
         **com'è oggi**, **cosa deve diventare vero**, **come si sa che è finita**.
 
@@ -118,4 +120,4 @@ body:
   - type: markdown
     attributes:
       value: |
-        *Allineato al processo del 28 settembre 2026.*
+        *Allineato al processo del 30 settembre 2026.*
