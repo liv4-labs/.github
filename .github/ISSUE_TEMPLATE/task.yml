@@ -71,10 +71,16 @@ body:
     id: criteri
     attributes:
       label: Criteri di accettazione
-      description: Come checklist, così l'avanzamento si vede dalla lista senza aprire la issue. Non è la Definition of Done, che sta nel README del Project e vale per tutti.
+      description: |
+        Due elenchi, scritti con i dev al refinement. I **Bloccanti** vengono per primi e decidono l'accettazione: comprendono sempre che la cosa funzioni per l'utente finale nel percorso in cui la usa, anche quando nessuno l'ha scritto. I **Desiderabili** non fermano la issue: se ne manca uno, diventa una issue nuova a Backlog.
+
+        Come checklist, così l'avanzamento si vede dalla lista senza aprire la issue. Non è la Definition of Done, che sta nel README del Project e vale per tutti.
       value: |
+        **Bloccanti**
         - [ ] 
         - [ ] 
+
+        **Desiderabili**
         - [ ] 
     validations:
       required: true
@@ -128,4 +134,4 @@ body:
   - type: markdown
     attributes:
       value: |
-        *Allineato al processo del 30 settembre 2026.*
+        *Allineato al processo del 1/10/2026.*
