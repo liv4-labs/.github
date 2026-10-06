@@ -12,6 +12,8 @@ body:
 
         Le issue del Project si aprono tutte su **quality-engine**, anche quando il lavoro tocca il portale o l'infrastruttura: dove si lavora lo dice il campo Area.
 
+        **Il titolo è un nome corto**, poche parole su un sostantivo: «Import dell'8D da Excel», non «Compilare l'8D dall'Excel che manda il fornitore». La spiegazione sta nel corpo. Su un bug il nome è il sintomo in poche parole.
+
         Il corpo dice tre cose, comprensibili senza aver letto il documento da cui la issue nasce:
         **com'è oggi**, **cosa deve diventare vero**, **come si sa che è finita**.
         Ogni cosa si scrive una volta sola, e le sezioni facoltative senza contenuto si tolgono.
@@ -134,4 +136,4 @@ body:
   - type: markdown
     attributes:
       value: |
-        *Allineato al processo del 1/10/2026.*
+        *Allineato al processo del 6/10/2026.*
