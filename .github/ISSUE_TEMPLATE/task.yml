@@ -5,21 +5,31 @@ body:
   - type: markdown
     attributes:
       value: |
-        Priorità, taglia, area, cliente e sprint **non si scrivono qui**: sono campi del Project
-        [LIV4 delivery](https://github.com/orgs/liv4-labs/projects/7) e si impostano al triage e al refinement.
+        Priorità, taglia, area, cliente, ambiente e sprint **non si scrivono qui**: sono campi del Project
+        [LIV4 delivery](https://github.com/orgs/liv4-labs/projects/7) e si impostano alla backlog prioritization, al refinement e quando la issue entra in uno sprint.
+        Su un Bug, `Ambiente` si compila all'apertura e dice se il difetto è già in mano ai clienti, non dove lo hai visto.
         Qui va solo ciò che si legge aprendo la issue.
+
+        Le issue del Project si aprono tutte su **quality-engine**, anche quando il lavoro tocca il portale o l'infrastruttura: dove si lavora lo dice il campo Area.
+
+        **Il titolo è un nome corto**, poche parole su un sostantivo: «Import dell'8D da Excel», non «Compilare l'8D dall'Excel che manda il fornitore». La spiegazione sta nel corpo. Su un bug il nome è il sintomo in poche parole.
 
         Il corpo dice tre cose, comprensibili senza aver letto il documento da cui la issue nasce:
         **com'è oggi**, **cosa deve diventare vero**, **come si sa che è finita**.
+        Ogni cosa si scrive una volta sola, e le sezioni facoltative senza contenuto si tolgono.
+
+        **A Backlog la issue è corta.** «Com'è oggi» sono due o tre frasi sul problema. Criteri, outcome e passi portano la nota «si compila al refinement», e «Specifiche tecniche» resta vuota. File, funzioni, conteggi e stato dei rami si raccolgono al refinement, verificati sulla fonte viva.
 
   - type: textarea
     id: oggi
     attributes:
       label: Com'è oggi
       description: |
-        Lo stato di partenza, verificato sulla fonte viva (codice sul ramo di lavoro, database, infrastruttura) e non su un documento di analisi: un'analisi di un giorno prima può essere già smentita. Se la verifica non è possibile, si dichiara invece di tirare a indovinare.
+        Lo stato di partenza, scritto per chi non c'era: prima il sintomo come lo vede l'utente, poi perché succede, in italiano corrente. Verificato sulla fonte viva (codice sul ramo di lavoro, database, infrastruttura) e non su un documento di analisi: un'analisi di un giorno prima può essere già smentita. Se la verifica non è possibile, si dichiara invece di tirare a indovinare.
 
-        Con il riferimento per andare a guardare: repo, file, tabella, rotta, nome del servizio. Chi legge non era nella discussione da cui la issue nasce, quindi «il portale» o «il server» non bastano. I numeri portano la data di misurazione.
+        I riferimenti arrivano al file e alla funzione: repo, ramo, file, tabella, rotta, nome del servizio. «Il portale» o «il server» non bastano. SHA, numeri di riga, id dei messaggi e storia della segnalazione restano fuori, e l'analisi dettagliata del codice va in «Specifiche tecniche». A Backlog questi riferimenti non servono ancora: arrivano al refinement.
+
+        Ogni fatto osservato porta la data e il modo in cui è stato visto: «verificato il 24/9/2026 su develop di quality-engine», o il comando che lo rifà. Non portano data le cose che non sono osservazioni: il risultato atteso, il perimetro, un criterio.
 
         Su un bug è la sezione che serve di più: il sintomo osservato, con i numeri e la build su cui è stato visto.
       placeholder: "L'ETL scarta i record cancellati alla fonte: l'importatore filtra su deleted_at (liv4-labs/lambda-stream-etl, etl/extract.py, develop). Verificato il 17/09/2026."
@@ -30,8 +40,8 @@ body:
     id: risultato
     attributes:
       label: Risultato atteso
-      description: Cosa sarà vero quando questa issue è chiusa. Una o due frasi.
-      placeholder: L'ETL importa anche i record cancellati alla fonte.
+      description: Il comportamento finale, descritto in modo che si possa immaginare. Chi fa cosa, e cosa vede dopo. Una riga che sembra un titolo non basta.
+      placeholder: L'ETL importa anche i record cancellati alla fonte. Chi apre il portale li trova con lo stato che hanno nel gestionale, invece di non trovarli affatto.
     validations:
       required: true
 
@@ -39,7 +49,7 @@ body:
     id: perche
     attributes:
       label: Perché conta
-      description: Chi ne beneficia e cosa succede se non si fa.
+      description: Chi ne beneficia e cosa succede se non si fa. Non ripete «Com'è oggi».
     validations:
       required: true
 
@@ -63,10 +73,16 @@ body:
     id: criteri
     attributes:
       label: Criteri di accettazione
-      description: Come checklist, così l'avanzamento si vede dalla lista senza aprire la issue. Non è la Definition of Done, che sta nel README del Project e vale per tutti.
+      description: |
+        Due elenchi, scritti con i dev al refinement. I **Bloccanti** vengono per primi e decidono l'accettazione: comprendono sempre che la cosa funzioni per l'utente finale nel percorso in cui la usa, anche quando nessuno l'ha scritto. I **Desiderabili** non fermano la issue: se ne manca uno, diventa una issue nuova a Backlog.
+
+        Come checklist, così l'avanzamento si vede dalla lista senza aprire la issue. Non è la Definition of Done, che sta nel README del Project e vale per tutti.
       value: |
+        **Bloccanti**
         - [ ] 
         - [ ] 
+
+        **Desiderabili**
         - [ ] 
     validations:
       required: true
@@ -75,7 +91,7 @@ body:
     id: outcome
     attributes:
       label: Outcome verificabile
-      description: Come si verifica, concretamente, che il risultato atteso è raggiunto.
+      description: Dove e come si prova che il risultato atteso è raggiunto, senza ripetere i criteri.
     validations:
       required: true
 
@@ -83,7 +99,7 @@ body:
     id: passi
     attributes:
       label: Passi
-      description: I passi interni al lavoro, come checklist. Facoltativo su issue piccole.
+      description: I passi interni al lavoro, come checklist, senza ripetere «Incluso». Se non aggiungono niente, la sezione si toglie.
       value: |
         - [ ] 
         - [ ] 
@@ -94,7 +110,7 @@ body:
     id: specifiche
     attributes:
       label: Specifiche tecniche
-      description: Si lascia vuota all'apertura. Si compila nello stato Design, prima di iniziare a scrivere codice.
+      description: Si lascia vuota all'apertura, e a Backlog la issue non la compila. Si compila nello stato Design, prima di iniziare a scrivere codice. Qui va l'analisi dettagliata del codice, che «Com'è oggi» non riporta.
     validations:
       required: false
 
@@ -103,7 +119,9 @@ body:
     attributes:
       label: Rischi
       description: |
-        Si parte da una riga: una frase che nomina il rischio. Diventa un blocco strutturato solo se sai rispondere a tre domande — chi lo presidia, entro quando, cosa si fa se scade. Se non sai rispondere, la riga era già la cosa giusta.
+        Si parte da una riga: una frase che nomina il rischio. Diventa un blocco strutturato solo se sai rispondere a tre domande: chi lo presidia, entro quando, cosa si fa se scade. Se non sai rispondere, la riga era già la cosa giusta.
+
+        Un rischio che poggia su un fatto osservato porta la data e il modo in cui è stato visto, come in «Com'è oggi».
 
         Esempio di blocco:
         | | |
@@ -118,4 +136,4 @@ body:
   - type: markdown
     attributes:
       value: |
-        *Allineato al processo del 18 settembre 2026.*
+        *Allineato al processo del 6/10/2026.*
