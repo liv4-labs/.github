@@ -29,6 +29,10 @@ body:
 
         I riferimenti arrivano al file e alla funzione: repo, ramo, file, tabella, rotta, nome del servizio. «Il portale» o «il server» non bastano. SHA, numeri di riga, id dei messaggi e storia della segnalazione restano fuori, e l'analisi dettagliata del codice va in «Specifiche tecniche». A Backlog questi riferimenti non servono ancora: arrivano al refinement.
 
+        Descrive `develop`. UAT e produzione si nominano solo per una differenza di ambiente, che il merge non porta da un ambiente all'altro: configurazione viva, un flag spento, dati, utenti e MFA su Cognito, risorse in un altro account AWS. Una differenza di codice fra i rami si chiude col rilascio e non si scrive.
+
+        Al refinement si riverifica e si corregge in place, con la data nuova.
+
         Ogni fatto osservato porta la data e il modo in cui è stato visto: «verificato il 24/9/2026 su develop di quality-engine», o il comando che lo rifà. Non portano data le cose che non sono osservazioni: il risultato atteso, il perimetro, un criterio.
 
         Su un bug è la sezione che serve di più: il sintomo osservato, con i numeri e la build su cui è stato visto.
@@ -75,6 +79,8 @@ body:
       label: Criteri di accettazione
       description: |
         Due elenchi, scritti con i dev al refinement. I **Bloccanti** vengono per primi e decidono l'accettazione: comprendono sempre che la cosa funzioni per l'utente finale nel percorso in cui la usa, anche quando nessuno l'ha scritto. I **Desiderabili** non fermano la issue: se ne manca uno, diventa una issue nuova a Backlog.
+
+        Ogni criterio lo deve poter verificare chi collauda, che non legge la produzione né il valore di un segreto: una verifica che ne ha bisogno si scrive con «lo verifica chi sviluppa». Una decisione che cambia un criterio si scrive qui, con la data e il link al commento.
 
         Come checklist, così l'avanzamento si vede dalla lista senza aprire la issue. Non è la Definition of Done, che sta nel README del Project e vale per tutti.
       value: |
@@ -136,4 +142,4 @@ body:
   - type: markdown
     attributes:
       value: |
-        *Allineato al processo del 6/10/2026.*
+        *Allineato al processo del 13/10/2026.*
