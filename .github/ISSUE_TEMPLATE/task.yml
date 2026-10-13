@@ -80,6 +80,8 @@ body:
       description: |
         Due elenchi, scritti con i dev al refinement. I **Bloccanti** vengono per primi e decidono l'accettazione: comprendono sempre che la cosa funzioni per l'utente finale nel percorso in cui la usa, anche quando nessuno l'ha scritto. I **Desiderabili** non fermano la issue: se ne manca uno, diventa una issue nuova a Backlog.
 
+        Ogni criterio lo deve poter verificare chi collauda, che non legge la produzione né il valore di un segreto: una verifica che ne ha bisogno si scrive con «lo verifica chi sviluppa». Una decisione che cambia un criterio si scrive qui, con la data e il link al commento.
+
         Come checklist, così l'avanzamento si vede dalla lista senza aprire la issue. Non è la Definition of Done, che sta nel README del Project e vale per tutti.
       value: |
         **Bloccanti**
