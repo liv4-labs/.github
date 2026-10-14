@@ -40,7 +40,7 @@ body:
     id: risultato
     attributes:
       label: Risultato atteso
-      description: Il comportamento finale, descritto in modo che si possa immaginare. Chi fa cosa, e cosa vede dopo. Una riga che sembra un titolo non basta.
+      description: Il comportamento finale, descritto in modo che si possa immaginare. Chi fa cosa, e cosa vede dopo. Una riga che sembra un titolo non basta. Se la issue consegna qualcosa a una persona, nomina la schermata e cosa ci vede chi la usa. Scrivere «sviluppare backend e frontend» non basta.
       placeholder: L'ETL importa anche i record cancellati alla fonte. Chi apre il portale li trova con lo stato che hanno nel gestionale, invece di non trovarli affatto.
     validations:
       required: true
@@ -57,7 +57,13 @@ body:
     id: incluso
     attributes:
       label: Incluso
-      description: Cosa rientra nello scope.
+      description: Cosa rientra nello scope, in due blocchi, Backend e Portale, se la issue consegna qualcosa a una persona. Se non mostra niente a nessuno, lo scrive qui.
+      placeholder: |
+        **Backend**
+        - ...
+
+        **Portale**
+        - ...
     validations:
       required: true
 
@@ -65,7 +71,7 @@ body:
     id: escluso
     attributes:
       label: Escluso
-      description: Cosa NON rientra, anche se qualcuno potrebbe aspettarselo. Serve a chiudere senza discussioni.
+      description: Cosa NON rientra, anche se qualcuno potrebbe aspettarselo. Serve a chiudere senza discussioni. Un rimando a un'altra issue vale solo se quella lo ha nel suo Incluso.
     validations:
       required: true
 
@@ -136,4 +142,4 @@ body:
   - type: markdown
     attributes:
       value: |
-        *Allineato al processo del 6/10/2026.*
+        *Allineato al processo del 14/10/2026.*
