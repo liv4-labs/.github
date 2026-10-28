@@ -21,6 +21,17 @@ body:
         **A Backlog la issue è corta.** «Com'è oggi» sono due o tre frasi sul problema. Criteri, outcome e passi portano la nota «si compila al passaggio in Ready», e «Specifiche tecniche» resta vuota. File, funzioni, conteggi e stato dei rami si raccolgono al refinement, verificati sulla fonte viva.
 
   - type: textarea
+    id: da-leggere
+    attributes:
+      label: Da leggere prima
+      description: |
+        Solo se la issue ha una milestone: il link alla milestone, e poi le issue vicine, una per riga, con il nome e il perché leggerla («tocca lo stesso form»). Vicine sono le issue della stessa milestone che toccano lo stesso pezzo di prodotto (stesso agente, stessa schermata, stessi dati) e quelle da cui questa dipende. Chi sviluppa con un agente gli passa il corpo, e il campo Milestone l'agente non lo vede. Senza milestone la sezione si toglie.
+      placeholder: "- Milestone: https://github.com/liv4-labs/quality-engine/milestone/3
+- #1072, indirizzi del gestionale dall'attivazione: scrive la stessa configurazione"
+    validations:
+      required: false
+
+  - type: textarea
     id: oggi
     attributes:
       label: Com'è oggi
