@@ -38,6 +38,8 @@ body:
       description: |
         Lo stato di partenza, scritto per chi non c'era: prima il sintomo come lo vede l'utente, poi perché succede, in italiano corrente. Verificato sulla fonte viva (codice sul ramo di lavoro, database, infrastruttura) e non su un documento di analisi: un'analisi di un giorno prima può essere già smentita. Se la verifica non è possibile, si dichiara invece di tirare a indovinare.
 
+        Descrive `develop`, e nomina UAT o produzione solo per una differenza di ambiente: configurazione viva diversa dal file versionato, un flag spento in un ambiente, dati, utenti e MFA su Cognito, risorse in un account AWS diverso. Quella si scrive, con l'ambiente e cosa cambia.
+
         I riferimenti arrivano al file e alla funzione: repo, ramo, file, tabella, rotta, nome del servizio. «Il portale» o «il server» non bastano. SHA, numeri di riga, id dei messaggi e storia della segnalazione restano fuori, e l'analisi dettagliata del codice va in «Specifiche tecniche». A Backlog questi riferimenti non servono ancora: arrivano al refinement.
 
         Ogni fatto osservato porta la data e il modo in cui è stato visto: «verificato il 24/9/2026 su develop di quality-engine», o il comando che lo rifà. Non portano data le cose che non sono osservazioni: il risultato atteso, il perimetro, un criterio.
@@ -68,7 +70,7 @@ body:
     id: incluso
     attributes:
       label: Incluso
-      description: Cosa rientra nello scope, in due blocchi, Backend e Portale, se la issue consegna qualcosa a una persona. Se non mostra niente a nessuno, lo scrive qui.
+      description: Cosa rientra nello scope, in due blocchi, Backend e Portale, se la issue consegna qualcosa a una persona. Se non mostra niente a nessuno, lo scrive qui. La configurazione dell'ambiente di collaudo fa parte dell'Incluso. Un item che ha bisogno di configurazione, segreti o utenti su UAT non entra in UAT finché non ci sono.
       placeholder: |
         **Backend**
         - ...
@@ -92,6 +94,8 @@ body:
       label: Criteri di accettazione
       description: |
         Due elenchi, scritti dal PM quando la issue passa da Backlog a Ready o in Todo: una issue senza criteri non entra in uno sprint. I **Bloccanti** vengono per primi e decidono l'accettazione. Il primo è già scritto: dice che la cosa ha senso per chi la usa, e si riempiono i buchi fra parentesi quadre. Se non si sanno riempire, la issue non è pronta. I **Desiderabili** non fermano la issue: se ne manca uno, diventa una issue nuova a Backlog. Se non ce ne sono, si toglie l'elenco: niente elenco vuoto, niente «nessuno». I Bloccanti restano obbligatori, da tre a sei.
+
+        Un criterio si scrive per UAT, e lo verifica chi collauda con i permessi che ha. Chi sviluppa non certifica il proprio lavoro, quindi un criterio non porta mai «lo verifica chi sviluppa». Un criterio che riguarda un segreto si scrive sull'effetto che chi collauda vede con i suoi permessi: «il collegamento al gestionale funziona», non «la password è giusta».
 
         Come checklist, così l'avanzamento si vede dalla lista senza aprire la issue. Non è la Definition of Done, che sta nel README del Project e vale per tutti.
       value: |
