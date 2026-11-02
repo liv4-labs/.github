@@ -144,6 +144,8 @@ body:
 
         Un rischio che poggia su un fatto osservato porta la data e il modo in cui è stato visto, come in «Com'è oggi».
 
+        Una dipendenza che non impedisce di partire, ma impedisce di chiudere perché un criterio ha bisogno dell'altra issue, si scrive qui con una riga, «Parte senza #N, ma non si chiude prima:» e il criterio, e su GitHub è `relates to`, non `blocked by`.
+
         Esempio di blocco:
         | | |
         |---|---|
@@ -157,4 +159,4 @@ body:
   - type: markdown
     attributes:
       value: |
-        *Allineato al processo del 29/10/2026.*
+        *Allineato al processo del 2/11/2026.*
