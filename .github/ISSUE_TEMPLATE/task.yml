@@ -21,6 +21,15 @@ body:
         **A Backlog la issue è corta.** «Com'è oggi» sono due o tre frasi sul problema. Criteri, outcome e passi portano la nota «si compila al passaggio in Ready», e «Specifiche tecniche» resta vuota. File, funzioni, conteggi e stato dei rami si raccolgono al refinement, verificati sulla fonte viva.
 
   - type: textarea
+    id: in-breve
+    attributes:
+      label: In breve
+      description: |
+        Facoltativa, e quando c'è apre il corpo: tre-cinque frasi per chi non conosce la issue, cioè cosa consegna, per chi e cosa sapere prima. Va sulle issue grosse, come i padri con sotto-issue. Sulle altre la sezione si toglie.
+    validations:
+      required: false
+
+  - type: textarea
     id: da-leggere
     attributes:
       label: Da leggere prima
@@ -97,6 +106,8 @@ body:
 
         Un criterio si scrive per UAT, e lo verifica chi collauda con i permessi che ha. Chi sviluppa non certifica il proprio lavoro, quindi un criterio non porta mai «lo verifica chi sviluppa». Un criterio che riguarda un segreto si scrive sull'effetto che chi collauda vede con i suoi permessi: «il collegamento al gestionale funziona», non «la password è giusta».
 
+        Su un padre con sotto-issue, cioè un pezzo di milestone che si consegna e si collauda insieme ma è troppo grosso per una persona in uno sprint, i criteri si scrivono quando nasce la sua prima sotto-issue, non al passaggio in Ready.
+
         Come checklist, così l'avanzamento si vede dalla lista senza aprire la issue. Non è la Definition of Done, che sta nel README del Project e vale per tutti.
       value: |
         **Bloccanti**
@@ -159,4 +170,4 @@ body:
   - type: markdown
     attributes:
       value: |
-        *Allineato al processo del 2/11/2026.*
+        *Allineato al processo del 18/11/2026.*
