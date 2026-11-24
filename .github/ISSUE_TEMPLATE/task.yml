@@ -10,7 +10,7 @@ body:
         Su un Bug, `Ambiente` si compila all'apertura e dice se il difetto è già in mano ai clienti, non dove lo hai visto.
         Qui va solo ciò che si legge aprendo la issue.
 
-        Le issue del Project si aprono tutte su **quality-engine**, anche quando il lavoro tocca il portale o l'infrastruttura: dove si lavora lo dice il campo Area.
+        Una issue si apre e resta nel repo dove nasce o dove si lavora, e non si trasferisce. **In una milestone stanno solo le issue di quality-engine**: il lavoro di un altro repo che serve a una milestone blocca la sua issue di chiusura con `blocked by`.
 
         **Il titolo è un nome corto**, poche parole su un sostantivo: «Import dell'8D da Excel», non «Compilare l'8D dall'Excel che manda il fornitore». La spiegazione sta nel corpo. Su un bug il nome è il sintomo in poche parole.
 
