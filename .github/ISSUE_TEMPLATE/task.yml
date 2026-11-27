@@ -10,7 +10,7 @@ body:
         Su un Bug, `Ambiente` si compila all'apertura e dice se il difetto è già in mano ai clienti, non dove lo hai visto.
         Qui va solo ciò che si legge aprendo la issue.
 
-        Le issue del Project si aprono tutte su **quality-engine**, anche quando il lavoro tocca il portale o l'infrastruttura: dove si lavora lo dice il campo Area.
+        Una issue si apre e resta nel repo dove nasce o dove si lavora: il portale, l'infrastruttura, l'ETL, la suite, l'automazione di sicurezza, o quality-engine. Le issue non si trasferiscono. In una Milestone stanno solo le issue di quality-engine: il lavoro di un altro repo che serve a una milestone si lega alla sua issue di chiusura con `blocked by`.
 
         **Il titolo è un nome corto**, poche parole su un sostantivo: «Import dell'8D da Excel», non «Compilare l'8D dall'Excel che manda il fornitore». La spiegazione sta nel corpo. Su un bug il nome è il sintomo in poche parole.
 
@@ -19,6 +19,15 @@ body:
         Ogni cosa si scrive una volta sola, e le sezioni facoltative senza contenuto si tolgono.
 
         **A Backlog la issue è corta.** «Com'è oggi» sono due o tre frasi sul problema. Criteri, outcome e passi portano la nota «si compila al passaggio in Ready», e «Specifiche tecniche» resta vuota. File, funzioni, conteggi e stato dei rami si raccolgono al refinement, verificati sulla fonte viva.
+
+  - type: textarea
+    id: in-breve
+    attributes:
+      label: In breve
+      description: |
+        Facoltativa, per le issue grosse: tre-cinque frasi per chi non conosce la issue, cioè cosa consegna, per chi e cosa sapere prima. Sulle issue piccole la sezione si toglie.
+    validations:
+      required: false
 
   - type: textarea
     id: da-leggere
@@ -44,7 +53,9 @@ body:
 
         Ogni fatto osservato porta la data e il modo in cui è stato visto: «verificato il 24/9/2026 su develop di quality-engine», o il comando che lo rifà. Non portano data le cose che non sono osservazioni: il risultato atteso, il perimetro, un criterio.
 
-        Su un bug è la sezione che serve di più: il sintomo osservato, con i numeri e la build su cui è stato visto.
+        Su un bug è la sezione che serve di più: il sintomo osservato, con i numeri e la build su cui è stato visto. Un bug che raccoglie più difetti della stessa funzione e dello stesso tenant ha un paragrafo «Difetto N» per difetto, con passi, atteso con la fonte, ottenuto ed evidenza.
+
+        Quando un presupposto del corpo non è più vero, il passaggio si riscrive e accanto porta «Aggiornato il <data>: prima ...», con il link al commento che spiega il cambio in «Da leggere prima».
       placeholder: "L'ETL scarta i record cancellati alla fonte: l'importatore filtra su deleted_at (liv4-labs/lambda-stream-etl, etl/extract.py, develop). Verificato il 17/09/2026."
     validations:
       required: true
@@ -93,9 +104,9 @@ body:
     attributes:
       label: Criteri di accettazione
       description: |
-        Due elenchi, scritti dal PM quando la issue passa da Backlog a Ready o in Todo: una issue senza criteri non entra in uno sprint. I **Bloccanti** vengono per primi e decidono l'accettazione. Il primo è già scritto: dice che la cosa ha senso per chi la usa, e si riempiono i buchi fra parentesi quadre. Se non si sanno riempire, la issue non è pronta. I **Desiderabili** non fermano la issue: se ne manca uno, diventa una issue nuova a Backlog. Se non ce ne sono, si toglie l'elenco: niente elenco vuoto, niente «nessuno». I Bloccanti restano obbligatori, da tre a sei.
+        Due elenchi, scritti dal PM quando la issue passa da Backlog a Ready o in Todo: una issue senza criteri non entra in uno sprint. Su un bug riprodotto li scrive chi l'ha riprodotto, all'apertura. I **Bloccanti** vengono per primi e decidono l'accettazione. Il primo è già scritto: dice che la cosa ha senso per chi la usa, e si riempiono i buchi fra parentesi quadre. Se non si sanno riempire, la issue non è pronta. I **Desiderabili** non fermano la issue: se ne manca uno, diventa una issue nuova a Backlog. Se non ce ne sono, si toglie l'elenco: niente elenco vuoto, niente «nessuno». I Bloccanti restano obbligatori, da tre a sei: fa eccezione il bug con più difetti, che ha un bloccante «Difetto N:» per difetto oltre al primo. Ogni bloccante fallisce se il problema del titolo c'è ancora, e dice il risultato, non il meccanismo.
 
-        Un criterio si scrive per UAT, e lo verifica chi collauda con i permessi che ha. Chi sviluppa non certifica il proprio lavoro, quindi un criterio non porta mai «lo verifica chi sviluppa». Un criterio che riguarda un segreto si scrive sull'effetto che chi collauda vede con i suoi permessi: «il collegamento al gestionale funziona», non «la password è giusta».
+        Un criterio si scrive per il collaudo UAT, che cade nello sprint dopo quello dello sviluppo, e lo verifica chi collauda con i permessi che ha. Chi sviluppa non certifica il proprio lavoro, quindi un criterio non porta mai «lo verifica chi sviluppa». Un criterio che riguarda un segreto si scrive sull'effetto che chi collauda vede con i suoi permessi: «il collegamento al gestionale funziona», non «la password è giusta».
 
         Come checklist, così l'avanzamento si vede dalla lista senza aprire la issue. Non è la Definition of Done, che sta nel README del Project e vale per tutti.
       value: |
@@ -159,4 +170,4 @@ body:
   - type: markdown
     attributes:
       value: |
-        *Allineato al processo del 2/11/2026.*
+        *Allineato al processo del 27/11/2026.*
